@@ -1,10 +1,10 @@
 import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
 import TodoListView from '@/views/TodoListView.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/todolist',
@@ -24,6 +24,7 @@ const router = createRouter({
     },
   ],
 })
+
 router.beforeEach((to, from, next) => {
   const token = document.cookie.replace(
     /(?:(?:^|.*;\s*)vue3-todolist-token\s*=\s*([^;]*).*$)|^.*$/,
